@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 import static wypozyczalniaaut.Application.getCars;
 
@@ -18,22 +19,22 @@ import static wypozyczalniaaut.Application.getCars;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Cars")
+@Table(name = "cars")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+    private long id;
 
-    @Column
+    @Column(name = "CAR_PLATE")
     private String carPlate;
-    @Column
+    @Column(name = "mark")
     private String mark;
-    @Column
+    @Column(name = "model")
     private String model;
-    @Column
+    @Column(name = "seats", insertable = false, updatable = false)
     private int seats;
-    @Column
+    @Column(name = "seats")
     private BigDecimal price;
 
     public Car(String carPlate, String mark, String model, int seats, BigDecimal price) {

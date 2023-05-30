@@ -9,6 +9,7 @@ import wypozyczalniaaut.repositories.CarsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -32,6 +33,17 @@ public class CarController {
             return new ResponseEntity<>(cars, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/cars/{id}")
+    public ResponseEntity<Car> getCarById(@PathVariable("id") long id) {
+        Optional<Car> carData = carsRepository.findById(id);
+
+        if (carData.isPresent()) {
+            return new ResponseEntity<>(carData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

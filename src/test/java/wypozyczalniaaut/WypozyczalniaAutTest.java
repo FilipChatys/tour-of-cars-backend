@@ -4,7 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 import wypozyczalniaaut.entities.Car;
+import wypozyczalniaaut.repositories.CarsRepository;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -13,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static wypozyczalniaaut.entities.Car.getListOfCars;
 
+@Sql({"/schema.sql", "/data.sql"})
 class WypozyczalniaAutTest {
 
     List listOfCars = new ArrayList<>();
