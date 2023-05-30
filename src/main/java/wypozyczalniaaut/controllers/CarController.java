@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import wypozyczalniaaut.entities.Car;
 import wypozyczalniaaut.repositories.CarsRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -45,6 +43,22 @@ public class CarController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/cars/{model}")
+    public ResponseEntity<Car> getCarByModel(@PathVariable("id") long id) {
+        //TODO
+        //implementation should return list of cars with given model
+        //GET method to test: http://localhost/api/cars/{model}
+        return (ResponseEntity<Car>) Collections.emptyList();
+    }
+
+    @GetMapping("/cars/{parameters}")
+    public ResponseEntity<Car> getCarByGivenQuery(@PathVariable("id") long id) {
+        //TODO
+        //implementation should return list of cars with given parameters
+        //GET method to test: http://localhost/api/cars/mark=Audi&model=A3
+        return (ResponseEntity<Car>) Collections.emptyList();
     }
 
 }
