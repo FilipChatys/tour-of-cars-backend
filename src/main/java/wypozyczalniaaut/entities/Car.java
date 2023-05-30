@@ -1,39 +1,40 @@
-package wypozyczalniaaut;
+package wypozyczalniaaut.entities;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import static javax.persistence.GenerationType.IDENTITY;
 import static wypozyczalniaaut.Application.getCars;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
-@Table(name = "cars")
+@Table(name = "Cars")
 public class Car {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    String carPlate;
-    String mark;
-    String model;
-    int seats;
-    BigDecimal price;
+    @Column
+    private String carPlate;
+    @Column
+    private String mark;
+    @Column
+    private String model;
+    @Column
+    private int seats;
+    @Column
+    private BigDecimal price;
 
     public Car(String carPlate, String mark, String model, int seats, BigDecimal price) {
 
@@ -83,6 +84,5 @@ public class Car {
 
         return filteredCars2;
     }
-    //    return Collections.emptyList();
-    //}
+
 }

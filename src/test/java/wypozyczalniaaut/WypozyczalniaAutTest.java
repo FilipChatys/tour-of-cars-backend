@@ -4,13 +4,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import wypozyczalniaaut.entities.Car;
 
 import java.math.BigDecimal;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static wypozyczalniaaut.Car.getListOfCars;
+import static wypozyczalniaaut.entities.Car.getListOfCars;
 
 class WypozyczalniaAutTest {
 
