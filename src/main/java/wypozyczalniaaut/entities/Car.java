@@ -6,13 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
-import static wypozyczalniaaut.Application.getCars;
 
 
 @Data
@@ -26,64 +21,41 @@ public class Car {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    @Column(name = "CAR_PLATE")
-    private String carPlate;
-    @Column(name = "mark")
-    private String mark;
-    @Column(name = "model")
-    private String model;
-    @Column(name = "seats", insertable = false, updatable = false)
-    private int seats;
-    @Column(name = "seats")
-    private BigDecimal price;
-
-    public Car(String carPlate, String mark, String model, int seats, BigDecimal price) {
-
-        this.carPlate = carPlate;
-        this.mark = mark;
-        this.model = model;
-        this.seats = seats;
-        this.price = price;
-    }
-
-    /**
-     * @param mark
-     * @return lista pojazdów ograniczonych do danego modelu
-     */
-
-    public static List<Car> getListOfCars(String mark) {
-
-        //TODO
-        //do zrobienia implementacja która pozwoli na ograniczenie listy do składającej się z danej marki
-        List<Car> allCars = getCars();
-        List<Car> matchingCars = new ArrayList<>();
-
-        for (Car car : allCars) {
-            if (car.getMark().equalsIgnoreCase(mark)) {
-                matchingCars.add(car);
-            }
-        }
-
-        return matchingCars;
-    }
-
-        //return Collections.emptyList();
-    //}
-
-    public static List<Car> getListOfCars(String mark, String model) {
-
-        //TODO
-        //do zrobienia implementacja która pozwoli na ograniczenie listy do składającej się z danej marki oraz modelu
-
-        List<Car> filteredCars2 = new ArrayList<>();
-
-        for (Car car : getCars()) {
-            if (car.getMark().equals(mark) && car.getModel().equals(model)) {
-                filteredCars2.add(car);
-            }
-        }
-
-        return filteredCars2;
-    }
+    @Column(name = "SHOWN_NAME")
+    private String shownName;
+    @Column(name = "MARK_OF_CAR")
+    private String markOfCar;
+    @Column(name = "MODEL_OF_CAR")
+    private String modelOfCar;
+    @Column(name = "SEGMENT")
+    private String segment;
+    @Column(name = "IMG_SRC_OF_CAR")
+    private String imgSrcOfCar;
+    @Column(name = "TYPE_OF_FUEL")
+    private String typeOfFuel;
+    @Column(name = "CLIMATRONIC")
+    private boolean climatronic;
+    @Column(name = "ELECTRIC_SHIELD")
+    private boolean electricShield;
+    @Column(name = "ELECTRIC_MIRRORS")
+    private boolean electricMirrors;
+    @Column(name = "STATIONARY_COMPUTER")
+    private boolean stationaryComputer;
+    @Column(name = "AUTOMATIC_DOOR_CLOSE")
+    private boolean automaticDoorClose;
+    @Column(name = "CAPACITY_OF_ENGINE")
+    private String capacityOfEngine;
+    @Column(name = "HORSE_POWER")
+    private String horsePower;
+    @Column(name = "FUEL_BURN_IN_CITY")
+    private String fuelBurnInCity;
+    @Column(name = "FUEL_BURN_ON_ROAD")
+    private String fuelBurnOnRoad;
+    @Column(name = "AMOUNT_OF_DOORS")
+    private int amountOfDoors;
+    @Column(name = "AMOUNT_OF_AIR_BAGS")
+    private int amountOfAirBags;
+    @Column(name = "ABS")
+    private boolean abs;
 
 }
