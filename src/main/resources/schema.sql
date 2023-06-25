@@ -1,7 +1,7 @@
 CREATE TABLE Cars
 (
     id                   int NOT NULL AUTO_INCREMENT,
-    shown_name           varchar,
+    name                 varchar,
     mark_of_car          varchar,
     model_of_car         varchar,
     segment              varchar,

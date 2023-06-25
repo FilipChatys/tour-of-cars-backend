@@ -21,8 +21,8 @@ public class Car {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    @Column(name = "SHOWN_NAME")
-    private String shownName;
+    @Column(name = "NAME")
+    private String name;
     @Column(name = "MARK_OF_CAR")
     private String markOfCar;
     @Column(name = "MODEL_OF_CAR")
